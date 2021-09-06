@@ -11,6 +11,8 @@ html {
 }
 
 #changeColor {
+  height: 55px;
+  width: 145px;
 }
 
 #changeColor:hover {
