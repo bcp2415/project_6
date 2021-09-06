@@ -1,3 +1,18 @@
 html {
   background-color: blueviolet;
 }
+
+#buttonWrapper {
+  display: flex;
+  align-items: center;
+  flex: row nowrap;
+  justify-content: center;
+  height: 100vh;
+}
+
+#changeColor {
+}
+
+#changeColor:hover {
+  background-color: crimson;
+}
