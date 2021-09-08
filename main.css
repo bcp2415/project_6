@@ -4,6 +4,7 @@ body {
 
 #buttonWrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
   flex: row nowrap;
   justify-content: center;
