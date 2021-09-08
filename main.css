@@ -19,3 +19,7 @@ body {
 #changeColor:hover {
   background-color: crimson;
 }
+
+#colorName {
+  background-color: cornsilk;
+}
