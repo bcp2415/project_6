@@ -1,8 +1,7 @@
 let colorBtn = document.querySelector("#changeColor");
-let colorNow = window
-  .getComputedStyle(html)
-  .getPropertyValue("background-color");
-console.log(colorNow);
+let screen = document.querySelector("#thisIsTheBody");
+let colorNow = window.getComputedStyle(screen);
+console.log(colorNow.getPropertyValue("background-color"));
 
 // add event listener to button
 colorBtn.addEventListener("click", function () {
