@@ -1,5 +1,6 @@
 const colorBtn = document.querySelector("#changeColor");
 const body = document.querySelector("#thisIsTheBody");
+const label = document.querySelector("#colorName");
 
 // add event listener to button
 colorBtn.addEventListener("click", function () {
@@ -17,8 +18,9 @@ colorBtn.addEventListener("click", function () {
     newColor = genNewColor();
   }
   // call fcn to change background color in DOM
-  console.log(newColor);
   body.style.backgroundColor = newColor;
+  // update label in display
+  label.textContent = `Color: ${newColor}`;
 });
 
 function genNewColor() {
