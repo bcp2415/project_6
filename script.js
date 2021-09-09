@@ -1,12 +1,12 @@
 const colorBtn = document.querySelector("#changeColor");
 const body = document.querySelector("#thisIsTheBody");
 const label = document.querySelector("#colorName");
+label.textContent = "Color: blueviolet";
 
 // add event listener to button
 colorBtn.addEventListener("click", function () {
   let newColor;
   // read and store current background color
-
   let color = window.getComputedStyle(body);
   let colorNow = color.getPropertyValue("background-color");
 
@@ -27,6 +27,5 @@ function genNewColor() {
   let red = Math.floor(Math.random() * 255);
   let green = Math.floor(Math.random() * 255);
   let blue = Math.floor(Math.random() * 255);
-  newColor = String(`rgb(${red}, ${green}, ${blue})`);
-  return newColor;
+  return String(`rgb(${red}, ${green}, ${blue})`);
 }
