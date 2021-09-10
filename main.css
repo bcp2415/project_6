@@ -22,4 +22,15 @@ body {
 
 #colorName {
   background-color: cornsilk;
+  font-size: x-large;
+}
+
+#navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navItem {
+  padding: 15px;
 }
