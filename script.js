@@ -6,7 +6,15 @@ const rgb = document.querySelector("#rgb");
 label.textContent = "Color: blueviolet";
 
 // add event listener to button
-colorBtn.addEventListener("click", function () {
+colorBtn.addEventListener("click", flipColor);
+
+// add event listener to the simple button
+simple.addEventListener("click", simpleFlip);
+
+// add event listener to the rgb button
+rgb.addEventListener("click", rgbFlip);
+
+function flipColor() {
   let newColor;
   // read and store current background color
   let color = window.getComputedStyle(body);
@@ -19,21 +27,19 @@ colorBtn.addEventListener("click", function () {
   if (newColor === colorNow) {
     newColor = genNewColor();
   }
-  // call fcn to change background color in DOM
+  // change background color in DOM
   body.style.backgroundColor = newColor;
   // update label in display
   label.textContent = `Color: ${newColor}`;
-});
+}
 
-// add event listener to the simple button
-simple.addEventListener("click", function () {
-  // do some stuff
-});
+function simpleFlip() {
+  // flip among named colors
+}
 
-// add event listener to the rgb button
-rgb.addEventListener("click", function () {
-  // do other stuff
-});
+function rgbFlip() {
+  // flip amongst rgb colors
+}
 
 function genNewColor() {
   let red = Math.floor(Math.random() * 255);
