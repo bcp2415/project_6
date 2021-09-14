@@ -1,6 +1,8 @@
 const colorBtn = document.querySelector("#changeColor");
 const body = document.querySelector("#thisIsTheBody");
 const label = document.querySelector("#colorName");
+const simple = document.querySelector("#simple");
+const rgb = document.querySelector("#rgb");
 label.textContent = "Color: blueviolet";
 
 // add event listener to button
@@ -21,6 +23,16 @@ colorBtn.addEventListener("click", function () {
   body.style.backgroundColor = newColor;
   // update label in display
   label.textContent = `Color: ${newColor}`;
+});
+
+// add event listener to the simple button
+simple.addEventListener("click", function () {
+  // do some stuff
+});
+
+// add event listener to the rgb button
+rgb.addEventListener("click", function () {
+  // do other stuff
 });
 
 function genNewColor() {

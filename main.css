@@ -33,4 +33,6 @@ body {
 
 .navItem {
   padding: 15px;
+  font-size: large;
+  font-weight: 500;
 }
