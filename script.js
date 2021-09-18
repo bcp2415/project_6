@@ -20,6 +20,22 @@ const simpleColors = [
   "blue",
   "teal",
   "aqua",
+  "#000000",
+  "#c0c0c0",
+  "#808080",
+  "#ffffff",
+  "#800000",
+  "#ff0000",
+  "#800080",
+  "#ff00ff",
+  "#008000",
+  "#00ff00",
+  "#808000",
+  "#ffff00",
+  "#000080",
+  "#0000ff",
+  "#008080",
+  "#00ffff",
 ];
 let simpleNotRgb = true;
 label.textContent = "Color: blueviolet";
@@ -42,6 +58,7 @@ function flipColor() {
   // read and store current background color
   let color = window.getComputedStyle(body);
   let colorNow = color.getPropertyValue("background-color");
+  console.log(colorNow);
 
   // generate random new color
   if (simpleNotRgb) {
@@ -49,6 +66,7 @@ function flipColor() {
   } else {
     newColor = rgbFlip();
   }
+  console.log(newColor);
 
   // check that new color is different from current color:
   // needs fixing --- still calls genNewColor, which no longer exists; this function does more than 1 thing!
@@ -66,7 +84,7 @@ function flipColor() {
 function simpleFlip() {
   // flip among named colors
   let newNamedColor = Math.floor(Math.random() * 16);
-  return simpleColors[newNamedColor];
+  return simpleColors[newNamedColor + 16];
 }
 
 function rgbFlip() {
