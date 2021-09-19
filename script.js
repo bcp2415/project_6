@@ -20,6 +20,9 @@ const simpleColors = [
   "blue",
   "teal",
   "aqua",
+];
+
+const simpleHex = [
   "#000000",
   "#c0c0c0",
   "#808080",
@@ -93,4 +96,11 @@ function rgbFlip() {
   let green = Math.floor(Math.random() * 255);
   let blue = Math.floor(Math.random() * 255);
   return String(`rgb(${red}, ${green}, ${blue})`);
+}
+
+function hexToRgb(hexColor) {
+  // convert hex value received as a string to an array w/ 3 members
+  // convert each 2-digit value to a decimal number from 0-255
+  // assemble string to return:  'rgb(r, g, b)'
+  return redGreenBlueValue;
 }
