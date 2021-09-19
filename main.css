@@ -39,7 +39,3 @@ body {
 .navItem:hover {
   background-color: crimson;
 }
-
-#testArea:hover {
-  background-color: white;
-}
