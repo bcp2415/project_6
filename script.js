@@ -84,7 +84,7 @@ function flipColor() {
 function simpleFlip() {
   // flip among named colors
   let newNamedColor = Math.floor(Math.random() * 16);
-  return simpleColors[newNamedColor + 16];
+  return simpleColors[newNamedColor];
 }
 
 function rgbFlip() {
