@@ -65,7 +65,7 @@ function flipColor() {
 
   // generate random new color
   if (simpleNotRgb) {
-    newColor = simpleFlip();
+    newColor = simpleColors[simpleFlip()];
   } else {
     newColor = rgbFlip();
   }
@@ -86,8 +86,7 @@ function flipColor() {
 
 function simpleFlip() {
   // flip among named colors
-  let newNamedColor = Math.floor(Math.random() * 16);
-  return simpleColors[newNamedColor];
+  return Math.floor(Math.random() * 16);
 }
 
 function rgbFlip() {
@@ -147,5 +146,3 @@ function convertHexToDecimal(digit) {
   }
   return decimal;
 }
-
-console.log(colorConvert("#ffffff"));
