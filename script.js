@@ -22,7 +22,7 @@ const simpleColors = [
   "aqua",
 ];
 
-const simpleHex = [
+const simpleHexValues = [
   "#000000",
   "#c0c0c0",
   "#808080",
@@ -40,31 +40,32 @@ const simpleHex = [
   "#008080",
   "#00ffff",
 ];
-let simpleNotRgb = true;
+let simpleOption = true;
 label.textContent = "Color: blueviolet";
 
-// add event listener to button
+// add event listener to 'change background color' button
 colorBtn.addEventListener("click", flipColor);
 
 // add event listener to the simple button
 simple.addEventListener("click", function () {
-  simpleNotRgb = true;
+  simpleOption = true;
 });
 
 // add event listener to the rgb button
 rgb.addEventListener("click", function () {
-  simpleNotRgb = false;
+  simpleOption = false;
 });
 
 function flipColor() {
   let newColor;
   // read and store current background color
-  let color = window.getComputedStyle(body);
-  let colorNow = color.getPropertyValue("background-color");
-  console.log(colorNow);
+  let oldColor = window
+    .getComputedStyle(body)
+    .getPropertyValue("background-color");
+  console.log(oldColor);
 
   // generate random new color
-  if (simpleNotRgb) {
+  if (simpleOption) {
     newColor = simpleColors[simpleFlip()];
   } else {
     newColor = rgbFlip();
@@ -73,8 +74,8 @@ function flipColor() {
 
   // check that new color is different from current color:
   // needs fixing --- still calls genNewColor, which no longer exists; this function does more than 1 thing!
-  if (newColor === colorNow) {
-    if (simpleNotRgb) {
+  if (newColor === oldColor) {
+    if (simpleOption) {
       newColor = simpleFlip();
     } else newColor = rgbFlip();
   }
@@ -146,3 +147,9 @@ function convertHexToDecimal(digit) {
   }
   return decimal;
 }
+
+function init() {
+  flipColor();
+}
+
+init();
