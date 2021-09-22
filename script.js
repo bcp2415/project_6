@@ -57,7 +57,7 @@ rgb.addEventListener("click", function () {
 });
 
 function flipColor() {
-  let newColor;
+  let newColor, index;
   // read and store current background color
   let oldColor = window
     .getComputedStyle(body)
@@ -66,14 +66,24 @@ function flipColor() {
 
   // generate random new color
   if (simpleOption) {
-    newColor = simpleColors[simpleFlip()];
+    index = simpleFlip();
+    newColor = simpleColors[index];
   } else {
     newColor = rgbFlip();
   }
   console.log(newColor);
 
+  // if we are using the simple option, convert the simple color hex value to rgb:
+  if (simpleOption) {
+    let newRgbValue = colorConvert(simpleHexValues[index]);
+    console.log("New rgb value: ", newRgbValue);
+    newColor = newRgbValue;
+  }
+
+  console.log(`Old color: ${oldColor}`);
+  console.log(`New color: ${newColor}`);
+
   // check that new color is different from current color:
-  // needs fixing --- still calls genNewColor, which no longer exists; this function does more than 1 thing!
   if (newColor === oldColor) {
     if (simpleOption) {
       newColor = simpleFlip();
@@ -82,7 +92,11 @@ function flipColor() {
   // change background color in DOM
   body.style.backgroundColor = newColor;
   // update label in display
-  label.textContent = `Color: ${newColor}`;
+  if (simpleOption) {
+    label.textContent = `Color: ${simpleColors[index]}`;
+  } else {
+    label.textContent = `Color: ${newColor}`;
+  }
 }
 
 function simpleFlip() {
@@ -108,11 +122,8 @@ function colorConvert(hexColor) {
 
   // convert each 2-digit value to a decimal number from 0-255
   let redRgb = hexToRgb(red);
-  console.log(redRgb);
   let greenRgb = hexToRgb(green);
-  console.log(greenRgb);
   let blueRgb = hexToRgb(blue);
-  console.log(blueRgb);
   // assemble string to return:  'rgb(r, g, b)'
   let finalRgb = `rgb(${redRgb}, ${greenRgb}, ${blueRgb})`;
   // return redGreenBlueValue;
