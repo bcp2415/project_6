@@ -41,7 +41,6 @@ const simpleHexValues = [
   "#00ffff",
 ];
 let simpleOption = true;
-label.textContent = "Color: blueviolet";
 
 // add event listener to 'change background color' button
 colorBtn.addEventListener("click", flipColor);
@@ -57,28 +56,12 @@ rgb.addEventListener("click", function () {
 });
 
 function flipColor() {
-  let newColor, index;
+  let index;
   // read and store current background color
   let oldColor = window
     .getComputedStyle(body)
     .getPropertyValue("background-color");
-
-  // generate random new color
-  if (simpleOption) {
-    index = simpleFlip();
-    newColor = simpleColors[index];
-  } else {
-    newColor = rgbFlip();
-  }
-
-  // if we are using the simple option, convert the simple color hex value to rgb:
-  if (simpleOption) {
-    let newRgbValue = colorConvert(simpleHexValues[index]);
-    newColor = newRgbValue;
-  }
-
-  console.log(`Old color: ${oldColor}`);
-  console.log(`New color: ${newColor}`);
+  let newColor = oldColor;
 
   // check that new color is different from current color:
   if (simpleOption) {
