@@ -62,7 +62,6 @@ function flipColor() {
   let oldColor = window
     .getComputedStyle(body)
     .getPropertyValue("background-color");
-  console.log(oldColor);
 
   // generate random new color
   if (simpleOption) {
@@ -71,12 +70,10 @@ function flipColor() {
   } else {
     newColor = rgbFlip();
   }
-  console.log(newColor);
 
   // if we are using the simple option, convert the simple color hex value to rgb:
   if (simpleOption) {
     let newRgbValue = colorConvert(simpleHexValues[index]);
-    console.log("New rgb value: ", newRgbValue);
     newColor = newRgbValue;
   }
 
@@ -84,11 +81,19 @@ function flipColor() {
   console.log(`New color: ${newColor}`);
 
   // check that new color is different from current color:
-  if (newColor === oldColor) {
-    if (simpleOption) {
-      newColor = simpleFlip();
-    } else newColor = rgbFlip();
+  if (simpleOption) {
+    while (oldColor === newColor) {
+      index = simpleFlip();
+      newColor = colorConvert(simpleHexValues[index]);
+    }
   }
+
+  if (!simpleOption) {
+    while (oldColor === newColor) {
+      newColor = rgbFlip();
+    }
+  }
+
   // change background color in DOM
   body.style.backgroundColor = newColor;
   // update label in display
